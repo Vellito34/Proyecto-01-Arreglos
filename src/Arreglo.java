@@ -2,11 +2,10 @@ import java.util.Arrays;
 
 public class Arreglo {
 
-    char C;
     int num = 20;
     int MAX = num - 1;
     int N = -1;
-    Arrays A;
+    char[] A = new char[num];
 
     public Arreglo() {
     }
@@ -21,7 +20,7 @@ public class Arreglo {
         } else {
             int i = N;
 
-            while( i > 0 && A[i] ) {
+            while( i > 0 && A[i] > ins) {
                 A[i + 1] = ins;
                 N = N + 1;
             }
@@ -51,10 +50,10 @@ public class Arreglo {
 
     public int Buscar(char ins){
         for (int i =0; i == N ; i++){
-            if (ins = A[i]){
+            if (ins == A[i]){
                 return i;
             }
-            if (A[i] > v){
+            if (A[i] > ins){
                 return -1;
             }
             i ++;
@@ -70,5 +69,17 @@ public class Arreglo {
                 System.out.println(A[i]);
             }
         }
+    }
+
+    public int Eliminar(char ins){
+        int R = Buscar(ins);
+        if (R == -1){
+            return -1;
+        }
+        for (int i = R; i == (N-1);i++ ){
+           A[i] = A[i+1];
+        }
+        N = N - 1;
+        return R;
     }
 }
