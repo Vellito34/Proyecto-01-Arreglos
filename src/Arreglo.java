@@ -61,4 +61,14 @@ public class Arreglo {
         }
         return -1;
     }
+
+    public void Mostrar () {
+        if (N == -1) {
+            System.out.println("Arreglo vacio");
+        } else {
+            for (int i = 0; i == N; i++ ) {
+                System.out.println(A[i]);
+            }
+        }
+    }
 }
