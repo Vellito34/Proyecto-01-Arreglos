@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Arreglo {
 
@@ -6,6 +7,7 @@ public class Arreglo {
     int MAX = num - 1;
     int N = -1;
     char[] A = new char[num];
+    Scanner sc = new Scanner(System.in);
 
     public Arreglo() {
     }
@@ -72,7 +74,7 @@ public class Arreglo {
     }
 
     public int Eliminar(char ins){
-        int R = Buscar(ins);
+        int R = BuscarBinario(ins);
         if (R == -1){
             return -1;
         }
@@ -80,6 +82,16 @@ public class Arreglo {
            A[i] = A[i+1];
         }
         N = N - 1;
+        return R;
+    }
+
+    public int Modificar(char ins){
+        int R = Eliminar(ins);
+                if (R != -1){
+                    System.out.println("Escribe el nuevo valor:  ");
+                    char temp = sc.nextLine().charAt(0);
+                    Insertar(temp);
+                }
         return R;
     }
 }
